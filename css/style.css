@@ -1,0 +1,259 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+
+/* Color Variables */
+:root {
+  --bg: #F4F1EA;
+  --text: #1C1C1C;
+  --accent: #2D6A9F;
+}
+
+/* Dark Mode Colors */
+.dark-mode {
+  --bg: #1C1C1C;
+  --text: #F4F1EA;
+}
+
+/* Reset & Basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Boldonse', Arial, sans-serif;
+  color: var(--accent);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Header/Nav Bar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg);
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  overflow-x: auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+nav ul li a {
+  font-family: 'Boldonse', Arial, sans-serif;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Dark Mode Toggle Switch */
+.dark-mode-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    z-index: 1001;
+}
+
+/* Hide default checkbox */
+.dark-mode-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider track */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+/* The slider thumb */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* Rounded corners for the switch */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* When the checkbox is checked, move the thumb and change track color */
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 6rem 1rem 2rem;
+}
+
+/* Homepage */
+.home-hero {
+  text-align: center;
+  /* Add relative positioning for magnify-text children */
+  position: relative; 
+}
+
+.home-hero img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.home-hero h1 {
+    font-family: 'Boldonse', Arial, sans-serif;
+    font-size: 3rem;
+    color: var(--text);
+    /* No magnify-text class here anymore */
+}
+
+/* Magnifying Glass Styles */
+#magnifying-glass {
+  position: absolute;
+  border: 5px solid rgba(0,0,0,0.5); /* Outer ring of the glass */
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 150px; /* Size of the magnifying glass */
+  height: 150px;
+  pointer-events: none; /* Allows mouse events to pass through to elements beneath */
+  background-repeat: no-repeat;
+  display: none; /* Hidden by default */
+  overflow: hidden; /* Crucial for the magnified view */
+  z-index: 999; /* Ensure it's above other content */
+}
+
+/* Work Page: Grid & Hover Overlay */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.work-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.work-item img {
+  width: 100%;
+  display: block;
+}
+
+.work-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(45, 106, 159, 0.8);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.work-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Project Detail Page */
+.project-detail img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.project-detail .text-box {
+  background: var(--bg);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--accent);
+}
+
+/* Footer (optional) */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+  }
+
+  .container {
+    padding-top: 7rem;
+  }
+}

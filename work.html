@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | Your Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,20 +16,34 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <label class="dark-mode-toggle">
+        <input type="checkbox" id="dark-mode-checkbox">
+        <span class="slider round"></span>
+    </label>
   </header>
 
-  <div class="container">
+  <main class="container">
     <h2>My Projects</h2>
     <div class="work-grid">
       <div class="work-item" onclick="location.href='project1.html'">
         <img src="img/project1-thumb.jpg" alt="Project 1">
         <div class="overlay">Branding & Illustration</div>
       </div>
-    </div>
-  </div>
+      <div class="work-item">
+        <img src="img/project2-thumb.jpg" alt="Project 2">
+        <div class="overlay">Web Design</div>
+      </div>
+      <div class="work-item">
+        <img src="img/project3-thumb.jpg" alt="Project 3">
+        <div class="overlay">UI/UX Design</div>
+      </div>
+      </div>
+  </main>
 
   <footer>
-    © 2025 Your Name
+    <p>© 2025 Your Name</p>
   </footer>
+
+  <script src="js/darkmode.js"></script>
 </body>
 </html>
